@@ -14,10 +14,10 @@ const bloco1 = document.createElement("div")
 const bloco2 = document.createElement("div")
 const bloco3 = document.createElement("div")
 const bloco4 = document.createElement("div")
-
 tower1.appendChild(bloco1)
 tower1.appendChild(bloco2)
 tower1.appendChild(bloco3)
 tower1.appendChild(bloco4)
+
 
 
