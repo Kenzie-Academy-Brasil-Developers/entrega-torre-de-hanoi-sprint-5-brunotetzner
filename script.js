@@ -14,16 +14,24 @@ const bloco1 = document.createElement("div")
 const bloco2 = document.createElement("div")
 const bloco3 = document.createElement("div")
 const bloco4 = document.createElement("div")
+
 tower1.appendChild(bloco1)
 tower1.appendChild(bloco2)
 tower1.appendChild(bloco3)
 tower1.appendChild(bloco4)
 
 //Adicionando o width aos containers
-bloco1.style.width = '100%';
-bloco2.style.width = '90%';
-bloco3.style.width = '80%';
-bloco4.style.width = '70%';
+bloco1.style.width = '20%';
+bloco2.style.width = '35%';
+bloco3.style.width = '50%';
+bloco4.style.width = '65%';
+
+// Adicionando cores aos blocos
+bloco1.style.backgroundColor = "#c490ff"
+bloco2.style.backgroundColor = "#9b71d2"
+bloco3.style.backgroundColor = "#7454a6"
+bloco4.style.backgroundColor = "#4f387d"
+
 
 //Adicionando classes as torres
 tower1.classList.add('container__tower')
