@@ -19,15 +19,24 @@ tower1.appendChild(bloco2)
 tower1.appendChild(bloco3)
 tower1.appendChild(bloco4)
 
+//Adicionando o width aos containers
+bloco1.style.width = '100%';
+bloco2.style.width = '90%';
+bloco3.style.width = '80%';
+bloco4.style.width = '70%';
+
 //Adicionando classes as torres
 tower1.classList.add('container__tower')
 tower2.classList.add('container__tower')
 tower3.classList.add('container__tower')
 
-//Adicionando aos blocos
+//Adicionando classe aos blocos
 bloco1.classList.add('container__tower__bloco')
 bloco2.classList.add('container__tower__bloco')
 bloco3.classList.add('container__tower__bloco')
 bloco4.classList.add('container__tower__bloco')
 
-
+//Adicionando click
+tower1.addEventListener('click', function(){console.log('hello world')})
+tower2.addEventListener('click', function(){console.log('hello world')})
+tower3.addEventListener('click', function(){console.log('hello world')})
