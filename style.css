@@ -10,11 +10,14 @@ body {
     background-repeat: repeat-x;
 }
 header {
+    width: 90%;
     text-align: center;
     text-shadow: 5px 4px 7px rgba(98, 13, 206, 0.54),
     -5px -4px 7px rgba(206, 0, 198, 0.57),
     2px -5px 14px #EEFFFF;
+    margin:auto;
 }
+
 main {
     display: flex;
     flex-direction: column;
@@ -23,24 +26,44 @@ main {
 #container {
     width: 90%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
+    align-items: center;
     margin:auto;
+    margin-bottom: 35px;
+    background-color:rgba(255, 255, 255, 0.5);
+    border-radius: 20% 20% 0% 0% / 10% 10% 10% 10%;
 }
 
-.container__towers {
-    width: 30%;
-    height: 165px;
+.container__tower {
+    width: 90%;
+    height: 225px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
+    padding-bottom: 20px;
 }
 
-.container__discs--format {
-    height: 25px;
+.container__tower__bloco {
+    height: 35px;
     border: none;
     border-radius: 4% 4% 4% 4% / 10% 10% 10% 10%;
+}
+
+#buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+.buttons_reset {
+    width: 50%;
+    height: 35px;
+    border: 2px double aqua;
+    border-radius: 4% 4% 4% 4% / 10% 10% 10% 10%;
+    background-color: rgb(43, 0, 43);
+    color: aqua;
 }
 
 /* -- Cores dos discos
