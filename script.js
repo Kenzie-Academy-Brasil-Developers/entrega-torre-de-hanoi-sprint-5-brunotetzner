@@ -19,5 +19,15 @@ tower1.appendChild(bloco2)
 tower1.appendChild(bloco3)
 tower1.appendChild(bloco4)
 
+//Adicionando classes as torres
+tower1.classList.add('container__tower')
+tower2.classList.add('container__tower')
+tower3.classList.add('container__tower')
+
+//Adicionando aos blocos
+bloco1.classList.add('container__tower__bloco')
+bloco2.classList.add('container__tower__bloco')
+bloco3.classList.add('container__tower__bloco')
+bloco4.classList.add('container__tower__bloco')
 
 
