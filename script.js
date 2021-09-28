@@ -45,6 +45,19 @@ bloco3.classList.add('container__tower__bloco')
 bloco4.classList.add('container__tower__bloco')
 
 //Adicionando click
-tower1.addEventListener('click', function(){console.log('hello world')})
-tower2.addEventListener('click', function(){console.log('hello world')})
-tower3.addEventListener('click', function(){console.log('hello world')})
+
+let firstBlock = 0
+function clickState(e) {  
+    if (firstBlock === 0) {
+        firstBlock = e.currentTarget.lastChild
+        console.log(firstBlock)
+    } 
+    else  {
+        console.log(firstBlock + "2")
+        e.currentTarget.appendChild(firstBlock)
+    }
+}
+
+tower1.addEventListener("click", clickState)
+tower2.addEventListener("click", clickState)
+tower3.addEventListener("click", clickState)
