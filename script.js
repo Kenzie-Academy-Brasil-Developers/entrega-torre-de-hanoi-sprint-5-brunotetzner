@@ -60,10 +60,10 @@ function clickState(e) {
             e.currentTarget.appendChild(firstBlock)
             firstClick = true
             counter += 1
-            //victoryMessage()
+            victoryMessage()
         } else {
             firstClick = true
-            //victoryMessage()
+            victoryMessage()
         }
     }
 }
@@ -78,7 +78,7 @@ for (i = 0; i < towers.length; i++) {
 
 // Criação e chamada da funçao para mensagem de vitória
 
-/* const victoryBox = document.querySelectorAll(".status_message h3")
+const victoryBox = document.querySelector(".status_message h3")
 victoryBox.innerText = "Jogo em andamento."
 console.log(victoryBox)
 
@@ -90,5 +90,5 @@ function victoryMessage() {
         victoryBox.innerText = `Jogo em andamento. \n Movimentos válidos: ${counter}`
         console.log(`Jogo em andamento. \n Movimentos válidos: ${counter}`)
     }
-} */
+} 
 
