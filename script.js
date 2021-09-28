@@ -22,11 +22,14 @@ function reset() {
     width = 100
 }
 
+let numberofblocks
+console.log(numberofblocks)
+
 submitinput.addEventListener("click", function (e) {
 
     const myinput = document.getElementById('dificult') //pegando input
-
-    const numberofblocks = myinput.value
+    numberofblocks = myinput.value
+    
     console.log(numberofblocks)
 
     if(myinput.value < 3 || myinput.value > 6) {
@@ -44,10 +47,6 @@ submitinput.addEventListener("click", function (e) {
         bloco.style.backgroundColor = `${colors[i]}`
         tower1.appendChild(bloco)
         width = width - 15
-        //Criar todas os blocos
-        //Adicionar como filhas da torre 1
-        //criar um tamanho para cada uma delas
-        //Criar uma função que escolha as cores
     }}
 })
 
@@ -58,48 +57,6 @@ tower3.classList.add("container__tower")
 const resetButton = document.querySelector(".buttons_reset")
 resetButton.innerText = "Reiniciar Jogo"
 resetButton.addEventListener("click", reset)
-
-
-
-/*----------------------------------------------*/
-
-
-
-//blocos
-
-// const bloco1 = document.createElement("div")
-// const bloco2 = document.createElement("div")
-// const bloco3 = document.createElement("div")
-// const bloco4 = document.createElement("div")
-
-/* tower1.appendChild(bloco1)
-tower1.appendChild(bloco2)
-tower1.appendChild(bloco3)
-tower1.appendChild(bloco4)
-*/
-
-/*Adicionando o width aos containers
-
-bloco1.style.width = '65%';
-bloco2.style.width = '50%';
-bloco3.style.width = '35%';
-bloco4.style.width = '20%';
-*/
-
-/* Adicionando cores aos blocos
-bloco1.style.backgroundColor = "#4f387d"
-bloco2.style.backgroundColor = "#7454a6"
-bloco3.style.backgroundColor = "#9b71d2"
-bloco4.style.backgroundColor = "#c490ff"
-*/
-
-
-
-/*Adicionando classe aos blocos
-bloco1.classList.add('container__tower__bloco')
-bloco2.classList.add('container__tower__bloco')
-bloco3.classList.add('container__tower__bloco')
-bloco4.classList.add('container__tower__bloco')*/
 
 //Adicionando click
 
@@ -136,10 +93,10 @@ for (i = 0; i < towers.length; i++) {
 
 const victoryBox = document.querySelector(".status_message h3")
 victoryBox.innerText = "Jogo em andamento."
-console.log(victoryBox)
 
+console.log(numberofblocks)
 function victoryMessage() {
-    if(tower3.childElementCount === numberofblocks || tower2.childElementCount === numberofblocks){
+    if(tower3.childElementCount === numberofblocks/*|| tower2.childElementCount === numberofblocks.value*/){
         victoryBox.innerText = `Você venceu com ${counter} movimentos!`
         console.log(`Você venceu com ${counter} movimentos!`)
     } else {
