@@ -19,9 +19,32 @@ header {
     margin: auto;
 }
 
+
 main {
     display: flex;
     flex-direction: column;
+}
+
+#status {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.status_message {
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.status_message h3 {
+    text-align: center;
+    font-size: smaller;
+    color: rgb(95, 40, 95);
+    text-shadow: 5px 4px 7px rgba(98, 13, 206, 0.54),
+    -5px -4px 7px rgba(206, 0, 198, 0.57),
+    2px -5px 14px #EEFFFF;
 }
 
 #container {
@@ -67,4 +90,52 @@ main {
     border-radius: 4% 4% 4% 4% / 10% 10% 10% 10%;
     background-color: rgb(43, 0, 43);
     color: aqua;
+}
+
+/* -- Cores dos discos
+#110030 - Maior 
+#2d1e55
+#4f387d
+#7454a6
+#9b71d2
+#c490ff - Menor  */
+
+@media screen and (min-width: 600px) {
+    body {
+        overflow: auto;
+    }
+    header {
+        height: 40px;
+    }
+    header h1 {
+        margin-top: 10px;
+    }
+
+    .status_message h3 {
+        font-size: 8px;
+    }
+    #container {
+        flex-direction: row;
+        justify-content: space-around;
+        width: 70%;
+        height: 50vh;
+    }
+
+    .container__tower {
+        width: 30%;
+        height: 100%;
+        padding-bottom: 5px;
+
+    }
+    .container__tower__bloco {
+        height: 5vh;
+    }
+
+    .buttons_reset {
+        width: 100px;
+        height: 8vh;
+    }
+    #buttons {
+        margin-bottom: 0px;
+    }
 }

@@ -17,6 +17,8 @@ let width = 100
 const difficult = [3,4,5,6]
 function reset() {
     tower1.innerHTML = ""
+    tower2.innerHTML = ""
+    tower3.innerHTML = ""
     width = 100
 }
 
@@ -105,7 +107,6 @@ let firstBlock
 let firstClick = true
 let counter = 0
 
-
 function clickState(e) {
     if (firstClick === true) {
         firstBlock = e.currentTarget.lastChild
@@ -115,12 +116,35 @@ function clickState(e) {
             e.currentTarget.appendChild(firstBlock)
             firstClick = true
             counter += 1
-            console.log(counter)
+            victoryMessage()
+        } else {
+            firstClick = true
+            victoryMessage()
         }
     }
 }
 
-const towers = document.querySelectorAll(".container__tower")
+
+
+const towers = document.getElementsByClassName("container__tower")
 for (i = 0; i < towers.length; i++) {
     towers[i].addEventListener("click", clickState)
 }
+
+
+// Criação e chamada da funçao para mensagem de vitória
+
+const victoryBox = document.querySelector(".status_message h3")
+victoryBox.innerText = "Jogo em andamento."
+console.log(victoryBox)
+
+function victoryMessage() {
+    if(tower3.childElementCount === numberofblocks || tower2.childElementCount === numberofblocks){
+        victoryBox.innerText = `Você venceu com ${counter} movimentos!`
+        console.log(`Você venceu com ${counter} movimentos!`)
+    } else {
+        victoryBox.innerText = `Jogo em andamento. \n Movimentos válidos: ${counter}`
+        console.log(`Jogo em andamento. \n Movimentos válidos: ${counter}`)
+    }
+} 
+
