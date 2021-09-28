@@ -61,11 +61,13 @@ function clickState(e) {
             firstClick = true
             counter += 1
             console.log(counter)
+        } else {
+            firstClick = true
         }
     }
 }
 
-const towers = document.querySelectorAll(".container__tower")
+const towers = document.getElementsByClassName("container__tower")
 for (i = 0; i < towers.length; i++) {
     towers[i].addEventListener("click", clickState)
 }
