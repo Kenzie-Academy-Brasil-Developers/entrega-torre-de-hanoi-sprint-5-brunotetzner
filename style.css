@@ -47,6 +47,36 @@ main {
     2px -5px 14px #EEFFFF;
 }
 
+#seletor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+#seletor p {
+    margin-bottom: 10px;
+    font-size:large;
+    width: 70%;
+    height: 20px;
+    text-align: center;
+}
+#seletor input {
+    margin-bottom: 10px;
+    height: 20px;
+    width: 50%;
+    border: none;
+    background-color: rgba(163, 180, 228, 0.822);
+    border-radius: 2px;
+}
+#seletor button {
+    margin-bottom: 15px;
+    height: 20px;
+    width: 30%;
+    border: none;
+    background-color: royalblue;
+    border-radius: 5px;
+}
 #container {
     width: 90%;
     display: flex;
@@ -132,10 +162,29 @@ main {
     }
 
     .buttons_reset {
-        width: 100px;
+        width: 150px;
         height: 8vh;
     }
     #buttons {
         margin-bottom: 0px;
+    }
+
+    #seletor p {
+        margin-bottom: 10px;
+        font-size: large;
+        width: 40%;
+        height: 20px;
+        text-align: center;
+    }
+
+    #seletor input {
+        width: 25%;
+    
+    }
+
+    #seletor button {
+
+        width: 15%;
+        
     }
 }
