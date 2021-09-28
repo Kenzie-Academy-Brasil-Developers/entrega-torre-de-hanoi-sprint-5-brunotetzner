@@ -9,13 +9,14 @@ body {
     background-image: linear-gradient(0deg, #B5FFFC 0%, #FFDEE9 100%);
     background-repeat: repeat-x;
 }
+
 header {
     width: 90%;
     text-align: center;
     text-shadow: 5px 4px 7px rgba(98, 13, 206, 0.54),
-    -5px -4px 7px rgba(206, 0, 198, 0.57),
-    2px -5px 14px #EEFFFF;
-    margin:auto;
+        -5px -4px 7px rgba(206, 0, 198, 0.57),
+        2px -5px 14px #EEFFFF;
+    margin: auto;
 }
 
 main {
@@ -29,9 +30,9 @@ main {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    margin:auto;
+    margin: auto;
     margin-bottom: 35px;
-    background-color:rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 20% 20% 0% 0% / 10% 10% 10% 10%;
 }
 
@@ -58,6 +59,7 @@ main {
     justify-content: center;
     margin-bottom: 40px;
 }
+
 .buttons_reset {
     width: 50%;
     height: 35px;
@@ -66,12 +68,3 @@ main {
     background-color: rgb(43, 0, 43);
     color: aqua;
 }
-
-/* -- Cores dos discos
-#110030 - Maior 
-#2d1e55
-#4f387d
-#7454a6
-#9b71d2
-#c490ff - Menor  */
-
