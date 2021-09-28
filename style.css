@@ -24,6 +24,17 @@ main {
     flex-direction: column;
 }
 
+#status {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.status_message {
+    height: 40px;
+}
+
 #container {
     width: 90%;
     display: flex;
