@@ -9,7 +9,8 @@ container.appendChild(tower1)
 container.appendChild(tower2)
 container.appendChild(tower3)
 
-//Criando blocos com loop
+
+//função de reset
 let width = 100
 const difficult = [3,4,5,6]
 function reset() {
@@ -18,7 +19,7 @@ function reset() {
     tower3.innerHTML = ""
     width = 100
 }
-
+/*------criando blocos com um loop-----------*/
 let numberofblocks = 0;
 
 submitinput.addEventListener("click", function (e) {
@@ -76,10 +77,7 @@ for (i = 0; i < towers.length; i++) {
     towers[i].addEventListener("click", clickState)
 }
 
-
-// Criação e chamada da funçao para mensagem de vitória
-//tower1.lastChild.classList.add('container__tower__bloco__lastChild')
-
+/*Adicionando click*/
 const victoryBox = document.querySelector(".status_message h3")
 victoryBox.innerText = "Jogo em andamento."
 
@@ -93,3 +91,8 @@ function victoryMessage() {
     }
 } 
 
+//Criando texto do contador 
+const containerCount = document.getElementsByClassName('status_counter')
+const paragrafoCount = document.createElement('p')
+containerCount.appendChild(paragrafoCount)
+paragrafoCount.innertext =  ('A contagem está em:')
