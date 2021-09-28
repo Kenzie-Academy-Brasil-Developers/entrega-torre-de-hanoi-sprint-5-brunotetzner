@@ -21,16 +21,16 @@ tower1.appendChild(bloco3)
 tower1.appendChild(bloco4)
 
 //Adicionando o width aos containers
-bloco1.style.width = '20%';
-bloco2.style.width = '35%';
-bloco3.style.width = '50%';
-bloco4.style.width = '65%';
+bloco1.style.width = '65%';
+bloco2.style.width = '50%';
+bloco3.style.width = '35%';
+bloco4.style.width = '20%';
 
 // Adicionando cores aos blocos
-bloco1.style.backgroundColor = "#c490ff"
-bloco2.style.backgroundColor = "#9b71d2"
-bloco3.style.backgroundColor = "#7454a6"
-bloco4.style.backgroundColor = "#4f387d"
+bloco1.style.backgroundColor = "#4f387d"
+bloco2.style.backgroundColor = "#7454a6"
+bloco3.style.backgroundColor = "#9b71d2"
+bloco4.style.backgroundColor = "#c490ff"
 
 
 //Adicionando classes as torres
