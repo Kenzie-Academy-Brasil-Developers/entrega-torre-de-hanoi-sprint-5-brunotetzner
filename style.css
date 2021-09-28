@@ -105,7 +105,9 @@ main {
     border-radius: 4% 4% 4% 4% / 10% 10% 10% 10%;
     background-color: red;
 }
-
+/*.container__tower__bloco__lastChild{
+    border: 5px solid black;
+}*/
 #buttons {
     display: flex;
     align-items: center;
@@ -187,4 +189,5 @@ main {
         width: 15%;
         
     }
+
 }
