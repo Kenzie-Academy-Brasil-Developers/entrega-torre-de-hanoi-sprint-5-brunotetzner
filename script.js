@@ -48,18 +48,24 @@ bloco4.classList.add('container__tower__bloco')
 
 let firstBlock
 let firstClick = true
-function clickState(e) {   
+let counter = 0
+
+
+function clickState(e) {
     if (firstClick === true) {
         firstBlock = e.currentTarget.lastChild
         firstClick = false
-    } 
-    else {
-        e.currentTarget.appendChild(firstBlock)
-        firstClick = true
+    } else {
+        if (e.currentTarget.lastChild === null || firstBlock.clientWidth < e.currentTarget.lastChild.clientWidth) {
+            e.currentTarget.appendChild(firstBlock)
+            firstClick = true
+            counter += 1
+            console.log(counter)
+        }
     }
 }
 
 const towers = document.querySelectorAll(".container__tower")
-for(i= 0; i< towers.length; i++){
+for (i = 0; i < towers.length; i++) {
     towers[i].addEventListener("click", clickState)
 }
