@@ -83,7 +83,7 @@ victoryBox.innerText = "Jogo em andamento."
 console.log(victoryBox)
 
 function victoryMessage() {
-    if(tower3.childElementCount === 4){
+    if(tower3.childElementCount === 4 || tower2.childElementCount === 4){
         victoryBox.innerText = `Você venceu com ${counter} movimentos!`
         console.log(`Você venceu com ${counter} movimentos!`)
     } else {
