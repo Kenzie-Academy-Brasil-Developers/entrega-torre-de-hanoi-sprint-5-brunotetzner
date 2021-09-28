@@ -60,10 +60,10 @@ function clickState(e) {
             e.currentTarget.appendChild(firstBlock)
             firstClick = true
             counter += 1
-            victoryMessage()
+            //victoryMessage()
         } else {
             firstClick = true
-            victoryMessage()
+            //victoryMessage()
         }
     }
 }
