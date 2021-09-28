@@ -1,5 +1,7 @@
 const container = document.getElementById("container")
 
+const submitinput = document.getElementById('submit')//selecionando botão de enviar
+
 //divs que armazenam os blocos
 const tower1 = document.createElement("div")
 const tower2 = document.createElement("div")
@@ -9,11 +11,36 @@ container.appendChild(tower1)
 container.appendChild(tower2)
 container.appendChild(tower3)
 
+
+//Criando blocos com loop
+submitinput.addEventListener("click", function(e){
+ 
+
+ const myinput = document.getElementById('dificult') //pegando input
+ 
+ const numberofblocks = myinput.value
+ console.log( numberofblocks)
+ for(let i = 0; i<numberofblocks;i++){
+    let bloco = document.createElement('div')
+     bloco.classList.add('container__tower__bloco')
+     tower1.appendChild(bloco)
+     bloco.style.width = '100%';
+    //Criar todas os blocos
+    //Adicionar como filhas da torre 1
+    //criar um tamanho para cada uma delas
+    //Criar uma função que escolha as cores
+}
+})
+/*----------------------------------------------*/
+
+
+
 //blocos
-const bloco1 = document.createElement("div")
-const bloco2 = document.createElement("div")
-const bloco3 = document.createElement("div")
-const bloco4 = document.createElement("div")
+
+// const bloco1 = document.createElement("div")
+// const bloco2 = document.createElement("div")
+// const bloco3 = document.createElement("div")
+// const bloco4 = document.createElement("div")
 
 tower1.appendChild(bloco1)
 tower1.appendChild(bloco2)
@@ -21,6 +48,7 @@ tower1.appendChild(bloco3)
 tower1.appendChild(bloco4)
 
 //Adicionando o width aos containers
+
 bloco1.style.width = '65%';
 bloco2.style.width = '50%';
 bloco3.style.width = '35%';
