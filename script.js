@@ -79,7 +79,6 @@ for (i = 0; i < towers.length; i++) {
 
 /*Adicionando click*/
 const victoryBox = document.querySelector(".status_message h3")
-victoryBox.innerText = "Jogo em andamento."
 
 function victoryMessage() {
     //Texto do contador
