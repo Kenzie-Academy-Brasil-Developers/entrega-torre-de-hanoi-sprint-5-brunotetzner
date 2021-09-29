@@ -38,18 +38,11 @@ main {
     flex-direction: column;
     margin-bottom: 20px;
 }
-.status_message h3 {
-    text-align: center;
-    font-size: smaller;
-    color: rgb(95, 40, 95);
-    text-shadow: 5px 4px 7px rgba(98, 13, 206, 0.54),
-    -5px -4px 7px rgba(206, 0, 198, 0.57),
-    2px -5px 14px #EEFFFF;
-}
-.counter{
+
+.counter {
     position: relative;
-    font-family:'Karla', sans-serif; 
-    color:rgb(121, 112, 112);
+    font-family: 'Karla', sans-serif;
+    color: rgb(121, 112, 112);
     font-size: 15px;
     width: 1000%;
     height: 100px;
@@ -62,13 +55,15 @@ main {
     align-content: center;
     align-items: center;
 }
+
 #seletor p {
     margin-bottom: 10px;
-    font-size:large;
+    font-size: large;
     width: 70%;
     height: 20px;
     text-align: center;
 }
+
 #seletor input {
     margin-bottom: 10px;
     height: 20px;
@@ -77,6 +72,7 @@ main {
     background-color: rgba(163, 180, 228, 0.822);
     border-radius: 2px;
 }
+
 #seletor button {
     margin-bottom: 15px;
     height: 20px;
@@ -85,14 +81,16 @@ main {
     background-color: royalblue;
     border-radius: 5px;
 }
-#seletor button:hover{
+
+#seletor button:hover {
     transition-delay: 100;
-    border:1px solid white;
-    width:29%;
+    border: 1px solid white;
+    width: 29%;
     height: 19px;
-    color:white;
+    color: white;
 
 }
+
 #container {
     width: 90%;
     display: flex;
@@ -137,14 +135,15 @@ main {
     background-color: rgb(43, 0, 43);
     color: aqua;
 }
-.buttons_reset:hover{
+
+.buttons_reset:hover {
     transition-delay: 0.5s;
     background-color: rgb(59, 3, 59);
-    border:2px solid white;
+    border: 2px solid white;
 }
 
-.victoryText{
-    color:rgb(9, 101, 138);
+.victoryText {
+    color: rgb(9, 101, 138);
     font-size: 20px;
 }
 
@@ -152,9 +151,11 @@ main {
     body {
         overflow: auto;
     }
+
     header {
         height: 40px;
     }
+
     header h1 {
         margin-top: 10px;
     }
@@ -162,6 +163,7 @@ main {
     .status_message h3 {
         font-size: 15px;
     }
+
     #container {
         flex-direction: row;
         justify-content: space-around;
@@ -175,6 +177,7 @@ main {
         padding-bottom: 5px;
 
     }
+
     .container__tower__bloco {
         height: 5vh;
     }
@@ -183,6 +186,7 @@ main {
         width: 150px;
         height: 8vh;
     }
+
     #buttons {
         margin-bottom: 0px;
     }
@@ -197,7 +201,7 @@ main {
 
     #seletor input {
         width: 25%;
-    
+
     }
 
     #seletor button {

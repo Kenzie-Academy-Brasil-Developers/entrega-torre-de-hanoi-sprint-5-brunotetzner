@@ -1,111 +1,174 @@
+
+//Busca no HTML o elemento que armazenará as torres
 const container = document.getElementById("container")
-const submitinput = document.getElementById('submit') //selecionando botão de enviar
-const containerCount = document.querySelector('.counter') //Mostra o resu 
-//divs que armazenam os blocos
+
+//Busca no HTML o botão de selecionar a dificuldade
+const submitinput = document.getElementById('submit')
+//Busca no HTML o contador de movimentos
+const containerCount = document.querySelector('.counter')
+
+//Criação das 3 torres
+
 const tower1 = document.createElement("div")
 const tower2 = document.createElement("div")
 const tower3 = document.createElement("div")
-container.appendChild(tower1)
-container.appendChild(tower2)
-container.appendChild(tower3)
 
+//Armazena todas as torres em um array
+const towers = [tower1,tower2,tower3]
+//Inicia um loop para percorrer todas as torres armazenadas
+for (i = 0; i < towers.length; i++) {
+    //Insere no HTML a torre da posição atual
+    container.appendChild(towers[i])
+    //Insere uma classe à torre da posição atual
+    towers[i].classList.add("container__tower")
+    //Adiciona as funções de click na torre
+    towers[i].addEventListener("click", clickState)
+}
 
-//função de reset
+//Inicia a variável do comprimento inicial dos discos
 let width = 100
-let counter = 0 // Guarda o numero de jogadas da partida 
+//Inicia a variável do contador de movimentos
+let counter = 0
+//Inicia a variável que guarda os níveis de dificuldade aceitos. 
 const difficult = [3, 4, 5, 6]
 
+//Criação da função de reset
 function reset() {
+    //Reseta a primeira torre
     tower1.innerHTML = ""
+    //Reseta a segunda torre
     tower2.innerHTML = ""
+    //Reseta a terceira torre
     tower3.innerHTML = ""
+    //Reseta o contador
     containerCount.innerHTML = ""
     counter = 0;
+    //Reseta o comprimento dos discos para o valor inicial
     width = 100
 }
-/*------criando blocos com um loop-----------*/
+//Define a quantidade de blocos inicial como 0
 let numberofblocks = 0;
 
+//Criação do seletor de dificuldade
 submitinput.addEventListener("click", function (e) {
-    const myinput = document.getElementById('dificult') //pegando input
+    //Busca no HTML a caixa que contém a dificuldade selecionada pelo usuário
+    const myinput = document.getElementById('dificult')
+    //Define a quantidade de blocos a serem jogados com o valor escolhido pelo usuário
     numberofblocks = Number(myinput.value)
 
+    //Verica se o valor escolhido pelo jogador é válido ou não
     if (myinput.value < 3 || myinput.value > 6) {
-        const errorMensage = document.createElement('p')
-        errorMensage.classList.add('counter__error')
-        containerCount.appendChild(errorMensage)
-        errorMensage.innerHTML = "O valor digitado não é um número válido"
+
+        // const errorMensage = document.createElement('p')
+        // errorMensage.classList.add('counter__error')
+        // containerCount.appendChild(errorMensage)
+        // errorMensage.innerHTML = "O valor digitado não é um número válido"
+
+        //Cria um elemento para exibir a mensagem de número inválido
+        const errorMessage = document.createElement('p')
+        //Adiciona uma classe à mensagem de erro
+        errorMessage.classList.add('counter__error')
+        //Insere a mensagem de erro no HTML
+        containerCount.appendChild(errorMessage)
+        //Define o conteúdo da mensagem de erro
+        errorMessage.innerText = "O valor digitado não é um número válido (Entre 3 e 6)"
+
+
     } else {
+        //Chama a função de reset, para resetar o jogo ao escolher uma nova dificuldade
         reset()
+        //Criação de um array para armazenar as cores dos blocos(discos)
         const colors = ["#110030", "#2d1e55", "#4f387d", "#7454a6", "#9b71d2", "#c490ff"]
 
+        //Loop de criação dos blocos
         for (let i = 0; i < numberofblocks; i++) {
+            //Cria um elemento que será o bloco
             let bloco = document.createElement('div')
+            //Adiciona uma classe ao elemento recém criado
             bloco.classList.add('container__tower__bloco')
-
+            //Define o comprimento do bloco
             bloco.style.width = `${width}%`;
-            bloco.style.backgroundColor = `${colors[i]}`
-            tower1.appendChild(bloco)
+            //Diminui o valor do comprimento para o próximo bloco, caso seja criado
             width = width - 15
+            //Define a cor de fundo do bloco
+            bloco.style.backgroundColor = `${colors[i]}`
+            //Adiciona o bloco na torre 1
+            tower1.appendChild(bloco)
         }
     }
 })
 
-tower1.classList.add("container__tower")
-tower2.classList.add("container__tower")
-tower3.classList.add("container__tower")
 
+
+//Busca no HTML o botão de reset
 const resetButton = document.querySelector(".buttons_reset")
+//Define o texto do botão de reset
 resetButton.innerText = "Reiniciar Jogo"
+//Chama a função de reset ao clicar no botão
 resetButton.addEventListener("click", reset)
 
-//Adicionando click
+//Inicia a variável que irá armazenar o bloco que eu selecionar para mover
 let firstBlock
+//Inicia minha variável que define se é o primeiro ou segundo click
 let firstClick = true
 
-
+//Criação da função do Click 1 e Click 2
 function clickState(e) {
+    //Verifica se é o primeiro click ou não
     if (firstClick === true) {
+        //Verifica se o primeiro click é em uma torre vazia ou não 
         if (e.currentTarget.childElementCount === 0) {
+            //Se a torre estiver vazia no primeiro click, mantém o status de 1ª click.
             firstClick = true
         } else {
+            //Se a torre não estiver vazia no primeiro click, armazena o bloco de cima em uma variável
             firstBlock = e.currentTarget.lastChild
+            //Define o status do jogo para 2ª click.
             firstClick = false
         }
-    } else {
+    } else { 
+        //Se for o segundo click, verifica se o movimento é válido
         if (e.currentTarget.lastChild === null || firstBlock.clientWidth < e.currentTarget.lastChild.clientWidth) {
+            //Se o movimento for válido, troca de torre o bloco selecionado no primeiro click
             e.currentTarget.appendChild(firstBlock)
+            //Volta o status do jogo para o início (1ª click)
             firstClick = true
+            //Acrescenta 1 no contador de movimentos. 1 movimento = 2 clicks, ou melhor, uma jogada válida, que pode ter mais clicks.
             counter += 1
+            //Chama a função de status do jogo
             victoryMessage()
         } else {
+            //Se o movimento não for válido, volta para o status de 1ª click, e não contabiliza um movimento
             firstClick = true
+            //Chama a função de status do jogo
             victoryMessage()
         }
     }
 }
-const towers = document.getElementsByClassName("container__tower")
-for (i = 0; i < towers.length; i++) {
-    towers[i].addEventListener("click", clickState)
-}
 
-/*Adicionando click*/
-const victoryBox = document.querySelector(".status_message h3")
 
+//Busca no html o elemento no qual será aplicada a mensagem de vitória
+const victoryBox = document.querySelector(".status_message")
+
+//Criação da função da condição de vitória e do status atual do jogo
 function victoryMessage() {
 
-    let victoryCount = parseInt(numberofblocks, 10)
-    if (tower3.childElementCount === victoryCount || tower2.childElementCount === victoryCount) {
-        containerCount.appendChild(victoryBox)
+    //Verifica se todos os blocos se encontram na torre 2 ou 3. O jogo pode ser ganho tanto em uma torre quanto na outra
 
+    if (tower3.childElementCount === numberofblocks || tower2.childElementCount === numberofblocks) {
+        containerCount.appendChild(victoryBox)
+        //Criando o elemento que guardará a mensagem de vitória
         const victoryText = document.createElement('p')
-        victoryBox.innerHTML = "" //Limpando victoryBox para deixar somente a mensagem de vitória
+        //Limpando victoryBox para deixar somente a mensagem de vitória
+        victoryBox.innerHTML = ""
         //Criando mensagem de vitória
         victoryText.classList.add("victoryText")
         victoryText.innerText = `Você venceu com ${counter} movimentos!`
+        //Anexando mensagem de vitória no html
         victoryBox.appendChild(victoryText)
 
     } else {
+        //Se ainda não foi atingido a condição de vitória, atualiza o status atual do jogo.
         victoryBox.innerText = `Jogo em andamento. \n Movimentos válidos: ${counter}`
         //pescar a div que armazena a condição a condição 
 //criar uma condição que compare o numero de jogadas com o numero de peças 
