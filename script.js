@@ -34,8 +34,7 @@ submitinput.addEventListener("click", function (e) {
         const errorMensage = document.createElement('p')
         errorMensage.classList.add('counter__error')
         containerCount.appendChild(errorMensage)
-        errorMensage.innerHTML = "O valor digitado não é um número válido (Entre 3 e 6)"
-        console.log("O valor digitado não é um número válido (Entre 3 e 6)")
+        errorMensage.innerHTML = "O valor digitado não é um número válido"
     } else {
         reset()
         const colors = ["#110030", "#2d1e55", "#4f387d", "#7454a6", "#9b71d2", "#c490ff"]
