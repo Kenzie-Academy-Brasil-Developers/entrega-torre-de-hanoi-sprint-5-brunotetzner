@@ -145,8 +145,8 @@ const victoryBox = document.querySelector(".status_message")
 function victoryMessage() {
 
     //Verifica se todos os blocos se encontram na torre 2 ou 3. O jogo pode ser ganho tanto em uma torre quanto na outra
-    let victoryCount = parseInt(numberofblocks, 10)
-    if (tower3.childElementCount === victoryCount || tower2.childElementCount === victoryCount) {
+
+    if (tower3.childElementCount === numberofblocks || tower2.childElementCount === numberofblocks) {
         containerCount.appendChild(victoryBox)
         //Criando o elemento que guardará a mensagem de vitória
         const victoryText = document.createElement('p')
