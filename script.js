@@ -1,18 +1,16 @@
 const container = document.getElementById("container")
-
 const submitinput = document.getElementById('submit') //selecionando botão de enviar
 
 //divs que armazenam os blocos
 const tower1 = document.createElement("div")
 const tower2 = document.createElement("div")
 const tower3 = document.createElement("div")
-
 container.appendChild(tower1)
 container.appendChild(tower2)
 container.appendChild(tower3)
 
 
-//Criando blocos com loop
+//função de reset
 let width = 100
 const difficult = [3,4,5,6]
 function reset() {
@@ -21,17 +19,13 @@ function reset() {
     tower3.innerHTML = ""
     width = 100
 }
-
-let numberofblocks
-console.log(numberofblocks)
+/*------criando blocos com um loop-----------*/
+let numberofblocks = 0;
 
 submitinput.addEventListener("click", function (e) {
-
     const myinput = document.getElementById('dificult') //pegando input
-    numberofblocks = myinput.value
+    numberofblocks = Number(myinput.value)
     
-    console.log(numberofblocks)
-
     if(myinput.value < 3 || myinput.value > 6) {
             console.log("O valor digitado não é um número válido (Entre 3 e 6)")
     } else {
@@ -43,7 +37,6 @@ submitinput.addEventListener("click", function (e) {
         bloco.classList.add('container__tower__bloco')
 
         bloco.style.width = `${width}%`;
-        console.log(`${width}%`)
         bloco.style.backgroundColor = `${colors[i]}`
         tower1.appendChild(bloco)
         width = width - 15
@@ -59,7 +52,6 @@ resetButton.innerText = "Reiniciar Jogo"
 resetButton.addEventListener("click", reset)
 
 //Adicionando click
-
 let firstBlock
 let firstClick = true
 let counter = 0
@@ -80,29 +72,30 @@ function clickState(e) {
         }
     }
 }
-
-
-
 const towers = document.getElementsByClassName("container__tower")
 for (i = 0; i < towers.length; i++) {
     towers[i].addEventListener("click", clickState)
 }
 
-
-// Criação e chamada da funçao para mensagem de vitória
-
+/*Adicionando click*/
 const victoryBox = document.querySelector(".status_message h3")
-victoryBox.innerText = "Jogo em andamento."
 
-console.log(numberofblocks)
 function victoryMessage() {
+
     let victoryCount = parseInt(numberofblocks, 10)
     if(tower3.childElementCount == victoryCount || tower2.childElementCount == victoryCount){
-        victoryBox.innerText = `Você venceu com ${counter} movimentos!`
-        console.log(`Você venceu com ${counter} movimentos!`)
+        
+    const containerCount = document.querySelector('.counter').appendChild(victoryBox)
+    const  victoryText = document.createElement('p')
+    victoryBox.innerHTML = "" //Limpando victoryBox para deixar somente a mensagem de vitória
+    //Criando mensagem de vitória
+    victoryText.classList.add("victoryText")
+    victoryText.innerText = `Você venceu com ${counter} movimentos!`
+    victoryBox.appendChild(victoryText)
+
     } else {
         victoryBox.innerText = `Jogo em andamento. \n Movimentos válidos: ${counter}`
-        console.log(`Jogo em andamento. \n Movimentos válidos: ${counter}`)
     }
 } 
+
 
