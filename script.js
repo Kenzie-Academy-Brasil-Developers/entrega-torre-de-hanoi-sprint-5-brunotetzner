@@ -1,6 +1,6 @@
 const container = document.getElementById("container")
 const submitinput = document.getElementById('submit') //selecionando botão de enviar
-const containerCount = document.querySelector('.counter') //Mostra o resu
+const containerCount = document.querySelector('.counter') //Mostra o resu 
 //divs que armazenam os blocos
 const tower1 = document.createElement("div")
 const tower2 = document.createElement("div")
@@ -107,5 +107,20 @@ function victoryMessage() {
 
     } else {
         victoryBox.innerText = `Jogo em andamento. \n Movimentos válidos: ${counter}`
+        //pescar a div que armazena a condição a condição 
+//criar uma condição que compare o numero de jogadas com o numero de peças 
+//criar uma nota de 0 a 5
+console.log(counter)
+console.log(numberofblocks)
+const divstar = document.getElementById('counter__star')
+if(counter === 7 && numberofblocks === 3){
+    console.log('PARABÉNS(5/5)')
+}
+else if(counter >9 && numberofblocks === 3){
+    console.log('boa, mas da pra melhorar...(3/5)')
+}
+else if(counter >7 && numberofblocks === 3){
+    console.log('BOA(4/5)')
+}
     }
 }
