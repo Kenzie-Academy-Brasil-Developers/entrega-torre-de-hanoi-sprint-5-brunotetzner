@@ -1,6 +1,6 @@
 const container = document.getElementById("container")
 const submitinput = document.getElementById('submit') //selecionando botão de enviar
-const containerCount = document.querySelector('.counter')//Mostra o resu
+const containerCount = document.querySelector('.counter') //Mostra o resu
 //divs que armazenam os blocos
 const tower1 = document.createElement("div")
 const tower2 = document.createElement("div")
@@ -13,7 +13,8 @@ container.appendChild(tower3)
 //função de reset
 let width = 100
 let counter = 0 // Guarda o numero de jogadas da partida 
-const difficult = [3,4,5,6]
+const difficult = [3, 4, 5, 6]
+
 function reset() {
     tower1.innerHTML = ""
     tower2.innerHTML = ""
@@ -28,26 +29,27 @@ let numberofblocks = 0;
 submitinput.addEventListener("click", function (e) {
     const myinput = document.getElementById('dificult') //pegando input
     numberofblocks = Number(myinput.value)
-    
-    if(myinput.value < 3 || myinput.value > 6) {
-            const errorMensage = document.createElement('p')
-            errorMensage.classList.add('counter__error')
-            containerCount.appendChild(errorMensage)
-            errorMensage.innerHTML = "O valor digitado não é um número válido (Entre 3 e 6)"
-            console.log("O valor digitado não é um número válido (Entre 3 e 6)")
+
+    if (myinput.value < 3 || myinput.value > 6) {
+        const errorMensage = document.createElement('p')
+        errorMensage.classList.add('counter__error')
+        containerCount.appendChild(errorMensage)
+        errorMensage.innerHTML = "O valor digitado não é um número válido (Entre 3 e 6)"
+        console.log("O valor digitado não é um número válido (Entre 3 e 6)")
     } else {
         reset()
-    const colors = ["#110030", "#2d1e55", "#4f387d", "#7454a6", "#9b71d2", "#c490ff"]
+        const colors = ["#110030", "#2d1e55", "#4f387d", "#7454a6", "#9b71d2", "#c490ff"]
 
-    for (let i = 0; i < numberofblocks; i++) {
-        let bloco = document.createElement('div')
-        bloco.classList.add('container__tower__bloco')
+        for (let i = 0; i < numberofblocks; i++) {
+            let bloco = document.createElement('div')
+            bloco.classList.add('container__tower__bloco')
 
-        bloco.style.width = `${width}%`;
-        bloco.style.backgroundColor = `${colors[i]}`
-        tower1.appendChild(bloco)
-        width = width - 15
-    }}
+            bloco.style.width = `${width}%`;
+            bloco.style.backgroundColor = `${colors[i]}`
+            tower1.appendChild(bloco)
+            width = width - 15
+        }
+    }
 })
 
 tower1.classList.add("container__tower")
@@ -65,8 +67,12 @@ let firstClick = true
 
 function clickState(e) {
     if (firstClick === true) {
-        firstBlock = e.currentTarget.lastChild
-        firstClick = false
+        if (e.currentTarget.childElementCount === 0) {
+            firstClick = true
+        } else {
+            firstBlock = e.currentTarget.lastChild
+            firstClick = false
+        }
     } else {
         if (e.currentTarget.lastChild === null || firstBlock.clientWidth < e.currentTarget.lastChild.clientWidth) {
             e.currentTarget.appendChild(firstBlock)
@@ -90,19 +96,17 @@ const victoryBox = document.querySelector(".status_message h3")
 function victoryMessage() {
 
     let victoryCount = parseInt(numberofblocks, 10)
-    if(tower3.childElementCount === victoryCount || tower2.childElementCount === victoryCount){
+    if (tower3.childElementCount === victoryCount || tower2.childElementCount === victoryCount) {
         containerCount.appendChild(victoryBox)
-    
-    const  victoryText = document.createElement('p')
-    victoryBox.innerHTML = "" //Limpando victoryBox para deixar somente a mensagem de vitória
-    //Criando mensagem de vitória
-    victoryText.classList.add("victoryText")
-    victoryText.innerText = `Você venceu com ${counter} movimentos!`
-    victoryBox.appendChild(victoryText)
+
+        const victoryText = document.createElement('p')
+        victoryBox.innerHTML = "" //Limpando victoryBox para deixar somente a mensagem de vitória
+        //Criando mensagem de vitória
+        victoryText.classList.add("victoryText")
+        victoryText.innerText = `Você venceu com ${counter} movimentos!`
+        victoryBox.appendChild(victoryText)
 
     } else {
         victoryBox.innerText = `Jogo em andamento. \n Movimentos válidos: ${counter}`
     }
-} 
-
-
+}
