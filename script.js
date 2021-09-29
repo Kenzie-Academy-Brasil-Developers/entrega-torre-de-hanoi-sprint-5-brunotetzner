@@ -1,6 +1,6 @@
 const container = document.getElementById("container")
 const submitinput = document.getElementById('submit') //selecionando botão de enviar
-
+const containerCount = document.querySelector('.counter')//Mostra o resu
 //divs que armazenam os blocos
 const tower1 = document.createElement("div")
 const tower2 = document.createElement("div")
@@ -12,11 +12,14 @@ container.appendChild(tower3)
 
 //função de reset
 let width = 100
+let counter = 0 // Guarda o numero de jogadas da partida 
 const difficult = [3,4,5,6]
 function reset() {
     tower1.innerHTML = ""
     tower2.innerHTML = ""
     tower3.innerHTML = ""
+    containerCount.innerHTML = ""
+    counter = 0;
     width = 100
 }
 /*------criando blocos com um loop-----------*/
@@ -27,6 +30,10 @@ submitinput.addEventListener("click", function (e) {
     numberofblocks = Number(myinput.value)
     
     if(myinput.value < 3 || myinput.value > 6) {
+            const errorMensage = document.createElement('p')
+            errorMensage.classList.add('counter__error')
+            containerCount.appendChild(errorMensage)
+            errorMensage.innerHTML = "O valor digitado não é um número válido (Entre 3 e 6)"
             console.log("O valor digitado não é um número válido (Entre 3 e 6)")
     } else {
         reset()
@@ -54,7 +61,7 @@ resetButton.addEventListener("click", reset)
 //Adicionando click
 let firstBlock
 let firstClick = true
-let counter = 0
+
 
 function clickState(e) {
     if (firstClick === true) {
@@ -83,9 +90,9 @@ const victoryBox = document.querySelector(".status_message h3")
 function victoryMessage() {
 
     let victoryCount = parseInt(numberofblocks, 10)
-    if(tower3.childElementCount == victoryCount || tower2.childElementCount == victoryCount){
-        
-    const containerCount = document.querySelector('.counter').appendChild(victoryBox)
+    if(tower3.childElementCount === victoryCount || tower2.childElementCount === victoryCount){
+        containerCount.appendChild(victoryBox)
+    
     const  victoryText = document.createElement('p')
     victoryBox.innerHTML = "" //Limpando victoryBox para deixar somente a mensagem de vitória
     //Criando mensagem de vitória
