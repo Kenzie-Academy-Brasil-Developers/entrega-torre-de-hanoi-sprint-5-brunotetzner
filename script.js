@@ -96,7 +96,8 @@ victoryBox.innerText = "Jogo em andamento."
 
 console.log(numberofblocks)
 function victoryMessage() {
-    if(tower3.childElementCount == numberofblocks || tower2.childElementCount == numberofblocks.value){
+    let victoryCount = parseInt(numberofblocks, 10)
+    if(tower3.childElementCount == victoryCount || tower2.childElementCount == victoryCount){
         victoryBox.innerText = `Você venceu com ${counter} movimentos!`
         console.log(`Você venceu com ${counter} movimentos!`)
     } else {
