@@ -58,11 +58,6 @@ submitinput.addEventListener("click", function (e) {
     //Verica se o valor escolhido pelo jogador é válido ou não
     if (myinput.value < 3 || myinput.value > 6) {
 
-        // const errorMensage = document.createElement('p')
-        // errorMensage.classList.add('counter__error')
-        // containerCount.appendChild(errorMensage)
-        // errorMensage.innerHTML = "O valor digitado não é um número válido"
-
         //Cria um elemento para exibir a mensagem de número inválido
         const errorMessage = document.createElement('p')
         //Adiciona uma classe à mensagem de erro
