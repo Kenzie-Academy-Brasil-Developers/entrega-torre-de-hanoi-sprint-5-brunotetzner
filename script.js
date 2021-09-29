@@ -86,11 +86,15 @@ function victoryMessage() {
     const containerCount = document.querySelector('.counter').appendChild(victoryBox)
 
    if(tower3.childElementCount === numberofblocks || tower2.childElementCount === numberofblocks){
-       victoryBox.innerText = `Você venceu com ${counter} movimentos!`
-       console.log(`Você venceu com ${counter} movimentos!`)
+
+       const  victoryText = document.createElement('p')
+       victoryBox.innerHTML = "" //Limpando victoryBox para deixar somente a mensagem de vitória
+       //Criando mensagem de vitória
+       victoryText.classList.add("victoryText")
+       victoryText.innerText = `Você venceu com ${counter} movimentos!`
+       victoryBox.appendChild(victoryText)
     } else {
         victoryBox.innerText = `Jogo em andamento. \n Movimentos válidos: ${counter}`
-       console.log(`Jogo em andamento. \n Movimentos válidos: ${counter}`)
     }
 } 
 
