@@ -64,6 +64,7 @@ main {
     text-align: center;
 }
 
+        
 #seletor input {
     margin-bottom: 10px;
     height: 20px;
@@ -72,7 +73,9 @@ main {
     background-color: rgba(163, 180, 228, 0.822);
     border-radius: 2px;
 }
-
+.fa-star{
+    
+}
 #seletor button {
     margin-bottom: 15px;
     height: 20px;

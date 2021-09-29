@@ -97,9 +97,6 @@ submitinput.addEventListener("click", function (e) {
         }
     }
 })
-
-
-
 //Busca no HTML o botão de reset
 const resetButton = document.querySelector(".buttons_reset")
 //Define o texto do botão de reset
@@ -167,23 +164,40 @@ function victoryMessage() {
         //Anexando mensagem de vitória no html
         victoryBox.appendChild(victoryText)
 
+        //função que calcula o numero de jogadas
+        let MinJogadas = Math.pow(2,numberofblocks)-1
+
+
+        if(counter === MinJogadas){
+            //tres estrelas
+            console.log(3)
+            for(let i =0; i<3;i++){
+                const newStar1 = document.createElement('i')
+                newStar1.classList.add('fas')
+                newStar1.classList.add('fa-star')
+                newStar1.style.color = 'yellow'
+                containerCount.appendChild(newStar1)
+                
+            }
+
+        }
+        else if(MinJogadas*1.5<counter) {
+            for(let i =0; i<3;i++){
+                const newStar1 = document.createElement('i')
+                newStar[i].classList.add('fas')
+                newStar1.classList.add('fa-star')
+                newStar1.style.color = 'yellow'
+                containerCount.appendChild(newStar1)
+                
+            }
+        }
+       else if(MinJogadas<counter){
+            //duas estrelas
+            console.log(2)
+        }
     } else {
         //Se ainda não foi atingido a condição de vitória, atualiza o status atual do jogo.
-        victoryBox.innerText = `Jogo em andamento. \n Movimentos válidos: ${counter}`
-        //pescar a div que armazena a condição a condição 
-//criar uma condição que compare o numero de jogadas com o numero de peças 
-//criar uma nota de 0 a 5
-console.log(counter)
-console.log(numberofblocks)
-const divstar = document.getElementById('counter__star')
-if(counter === 7 && numberofblocks === 3){
-    console.log('PARABÉNS(5/5)')
+        victoryBox.innerText = `Jogo em andamento. \n Movimentos válidos: ${counter}` 
 }
-else if(counter >9 && numberofblocks === 3){
-    console.log('boa, mas da pra melhorar...(3/5)')
-}
-else if(counter >7 && numberofblocks === 3){
-    console.log('BOA(4/5)')
-}
-    }
-}
+ }
+
