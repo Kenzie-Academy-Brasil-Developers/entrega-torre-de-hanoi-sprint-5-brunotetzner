@@ -46,9 +46,10 @@ main {
     -5px -4px 7px rgba(206, 0, 198, 0.57),
     2px -5px 14px #EEFFFF;
 }
-.status_counter{
-    font-size: 30px;
-    width: 50px;
+.counter{
+    font-family:'Karla', sans-serif; ;
+    font-size: 15px;
+    width: 50%;
     height: 100px;
 }
 
@@ -81,6 +82,14 @@ main {
     border: none;
     background-color: royalblue;
     border-radius: 5px;
+}
+#seletor button:hover{
+    transition-delay: 05s;
+    border:1px solid white;
+    width:29%;
+    height: 19px;
+    color:white;
+
 }
 #container {
     width: 90%;
@@ -126,6 +135,13 @@ main {
     background-color: rgb(43, 0, 43);
     color: aqua;
 }
+.buttons_reset:hover{
+    transition-delay: 0.5s;
+    height: 34px;
+    width:49%;
+    background-color: rgb(59, 3, 59);
+    border:2px solid white;
+}
 
 /* -- Cores dos discos
 #110030 - Maior 
@@ -147,7 +163,7 @@ main {
     }
 
     .status_message h3 {
-        font-size: 8px;
+        font-size: 15px;
     }
     #container {
         flex-direction: row;
@@ -190,7 +206,7 @@ main {
     #seletor button {
 
         width: 15%;
-        
     }
+
 
 }

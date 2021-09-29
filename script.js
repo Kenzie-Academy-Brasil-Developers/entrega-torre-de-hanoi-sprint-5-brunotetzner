@@ -26,7 +26,7 @@ submitinput.addEventListener("click", function (e) {
     const myinput = document.getElementById('dificult') //pegando input
     numberofblocks = Number(myinput.value)
     
-    if(myinput.value < 1 || myinput.value > 6) {
+    if(myinput.value < 3 || myinput.value > 6) {
             console.log("O valor digitado não é um número válido (Entre 3 e 6)")
     } else {
         reset()
@@ -82,6 +82,9 @@ const victoryBox = document.querySelector(".status_message h3")
 victoryBox.innerText = "Jogo em andamento."
 
 function victoryMessage() {
+    //Texto do contador
+    const containerCount = document.querySelector('.counter').appendChild(victoryBox)
+
    if(tower3.childElementCount === numberofblocks || tower2.childElementCount === numberofblocks){
        victoryBox.innerText = `Você venceu com ${counter} movimentos!`
        console.log(`Você venceu com ${counter} movimentos!`)
@@ -91,8 +94,8 @@ function victoryMessage() {
     }
 } 
 
-//Criando texto do contador 
-const containerCount = document.getElementsByClassName('status_counter')
-const paragrafoCount = document.createElement('p')
-containerCount.appendChild(paragrafoCount)
-paragrafoCount.innertext =  ('A contagem está em:')
+
+
+
+
+
