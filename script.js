@@ -1,4 +1,3 @@
-
 //Busca no HTML o elemento que armazenará as torres
 const container = document.getElementById("container")
 
@@ -14,7 +13,7 @@ const tower2 = document.createElement("div")
 const tower3 = document.createElement("div")
 
 //Armazena todas as torres em um array
-const towers = [tower1,tower2,tower3]
+const towers = [tower1, tower2, tower3]
 //Inicia um loop para percorrer todas as torres armazenadas
 for (i = 0; i < towers.length; i++) {
     //Insere no HTML a torre da posição atual
@@ -88,6 +87,8 @@ submitinput.addEventListener("click", function (e) {
             bloco.classList.add('container__tower__bloco')
             //Define o comprimento do bloco
             bloco.style.width = `${width}%`;
+            //Define um cursor pointer para os blocos.
+            bloco.style.cursor = "pointer";
             //Diminui o valor do comprimento para o próximo bloco, caso seja criado
             width = width - 15
             //Define a cor de fundo do bloco
@@ -113,6 +114,7 @@ let firstClick = true
 function clickState(e) {
     //Verifica se é o primeiro click ou não
     if (firstClick === true) {
+        container.style.cursor = "pointer";
         //Verifica se o primeiro click é em uma torre vazia ou não 
         if (e.currentTarget.childElementCount === 0) {
             //Se a torre estiver vazia no primeiro click, mantém o status de 1ª click.
@@ -123,7 +125,8 @@ function clickState(e) {
             //Define o status do jogo para 2ª click.
             firstClick = false
         }
-    } else { 
+    } else {
+        container.style.cursor = "default";
         //Se for o segundo click, verifica se o movimento é válido
         if (e.currentTarget.lastChild === null || firstBlock.clientWidth < e.currentTarget.lastChild.clientWidth) {
             //Se o movimento for válido, troca de torre o bloco selecionado no primeiro click
@@ -165,39 +168,56 @@ function victoryMessage() {
         victoryBox.appendChild(victoryText)
 
         //função que calcula o numero de jogadas
-        let MinJogadas = Math.pow(2,numberofblocks)-1
+        let MinJogadas = Math.pow(2, numberofblocks) - 1
 
-
-        if(counter === MinJogadas){
+        //Criaçao das estrelas de acordo com a eficácia da resolução
+        if (counter === MinJogadas) {
             //tres estrelas
-            console.log(3)
-            for(let i =0; i<3;i++){
+            for (let i = 0; i < 3; i++) {
                 const newStar1 = document.createElement('i')
                 newStar1.classList.add('fas')
                 newStar1.classList.add('fa-star')
                 newStar1.style.color = 'yellow'
                 containerCount.appendChild(newStar1)
-                
+
             }
 
-        }
-        else if(MinJogadas*1.5<counter) {
-            for(let i =0; i<3;i++){
+        } else if (counter <= (MinJogadas + 4)) {
+            //Duas estrelas
+            for (let i = 0; i < 2; i++) {
                 const newStar1 = document.createElement('i')
-                newStar[i].classList.add('fas')
+                newStar1.classList.add('fas')
                 newStar1.classList.add('fa-star')
                 newStar1.style.color = 'yellow'
                 containerCount.appendChild(newStar1)
-                
+
             }
-        }
-       else if(MinJogadas<counter){
-            //duas estrelas
-            console.log(2)
+            const newStar = document.createElement('i')
+            newStar.classList.add('far')
+            newStar.classList.add('fa-star')
+            newStar.style.color = 'gray'
+            containerCount.appendChild(newStar)
+        } else if (counter > (MinJogadas + 4)) {
+            //Uma estrela
+            const newStar = document.createElement('i')
+            newStar.classList.add('fas')
+            newStar.classList.add('fa-star')
+            newStar.style.color = 'yellow'
+            containerCount.appendChild(newStar)
+
+            for (let i = 0; i < 2; i++) {
+                const newStar1 = document.createElement('i')
+                newStar1.classList.add('far')
+                newStar1.classList.add('fa-star')
+                newStar1.style.color = 'gray'
+                containerCount.appendChild(newStar1)
+
+            }
+
         }
     } else {
+        containerCount.appendChild(victoryBox)
         //Se ainda não foi atingido a condição de vitória, atualiza o status atual do jogo.
-        victoryBox.innerText = `Jogo em andamento. \n Movimentos válidos: ${counter}` 
+        victoryBox.innerText = `Jogo em andamento. \n Movimentos válidos: ${counter}`
+    }
 }
- }
-
